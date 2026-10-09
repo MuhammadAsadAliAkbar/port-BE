@@ -22,9 +22,11 @@ app.use(bodyParser.urlencoded({extended: true, limit: '1gb'}))
 
 app.use('/api/auth', AuthRoutes)
 
-app.get('/', () => {
-     console.log('api porfolio service is working');
-})
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Porfolio API is running!'
+  });
+});
 
 app.listen(port, () => {
     console.log(`listening on port: ${port}`);
